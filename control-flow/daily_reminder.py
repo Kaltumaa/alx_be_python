@@ -14,15 +14,17 @@ def main():
         case "low":
             reminder = f"Reminder: '{task}' is a low priority task"
         case _:
-            reminder = "Invalid priority level entered."
-            
+            print("Invalid priority level entered.")
+            return  # Exit the function if the priority is invalid
+
     # Modify reminder based on time sensitivity
     if time_bound == "yes":
         reminder += " that requires immediate attention today!"
     elif time_bound == "no":
         reminder += ". Consider completing it when you have free time."
     else:
-        reminder = "Invalid input for time sensitivity."
+        print("Invalid input for time sensitivity.")
+        return  # Exit the function if the time sensitivity is invalid
 
     # Print the customized reminder
     print(reminder)
