@@ -7,7 +7,7 @@ def main():
     # Initialize the reminder variable
     reminder = ""
 
-    # Replace match-case with if-elif for compatibility
+    # Simulate the match-case for priority levels using if-elif-else
     if priority == "high":
         reminder = f"Reminder: '{task}' is a high priority task"
     elif priority == "medium":
@@ -16,17 +16,18 @@ def main():
         reminder = f"Reminder: '{task}' is a low priority task"
     else:
         print("Invalid priority level entered.")
-        return  
+        return  # Exit the function if the priority is invalid
 
+    # Use if-else to handle time sensitivity after priority match
     if time_bound == "yes":
-        reminder += " that requires immediate attention today!" 
+        reminder += " that requires immediate attention today!"
     elif time_bound == "no":
         reminder += ". Consider completing it when you have free time."
     else:
         print("Invalid input for time sensitivity.")
-        return 
+        return  # Exit the function if the time-bound input is invalid
 
-    # Output the reminder
+    # Output the final reminder
     print(reminder)
 
 if __name__ == "__main__":
