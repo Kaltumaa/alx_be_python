@@ -19,7 +19,6 @@ def main():
             print("Invalid priority level entered.")
             return  
 
-    # Append time sensitivity to the reminder
     if time_bound == "yes":
         reminder += " that requires immediate attention today!" 
     elif time_bound == "no":
