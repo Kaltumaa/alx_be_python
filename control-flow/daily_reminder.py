@@ -7,17 +7,16 @@ def main():
     # Initialize the reminder variable
     reminder = ""
 
-    # Match the priority and construct the base reminder
-    match priority:
-        case "high":
-            reminder = f"Reminder: '{task}' is a high priority task"
-        case "medium":
-            reminder = f"Reminder: '{task}' is a medium priority task"
-        case "low":
-            reminder = f"Reminder: '{task}' is a low priority task"
-        case _:
-            print("Invalid priority level entered.")
-            return  
+    # Replace match-case with if-elif for compatibility
+    if priority == "high":
+        reminder = f"Reminder: '{task}' is a high priority task"
+    elif priority == "medium":
+        reminder = f"Reminder: '{task}' is a medium priority task"
+    elif priority == "low":
+        reminder = f"Reminder: '{task}' is a low priority task"
+    else:
+        print("Invalid priority level entered.")
+        return  
 
     if time_bound == "yes":
         reminder += " that requires immediate attention today!" 
