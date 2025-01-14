@@ -1,22 +1,37 @@
-# Get task details from the user
-task = input("Please enter a task description: ")
-priority = input("Please enter the task's priority (high, medium, low): ")
-time_bound = input("Is the task time-bound? (yes or no): ")
+def main():
+    """Provide a customized reminder based on the task's priority and time sensitivity."""
+    # Prompt user for task details
+    task = input("Enter your task: ")
+    priority = input("Priority (high/medium/low): ").lower()
+    time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-# Process the Task Based on Priority and Time Sensitivity
-match priority.lower():
-    case "high":
-        reminder = f"Urgent! Your task: '{task}' is of high priority."
-    case "medium":
-        reminder = f"Reminder: Your task: '{task}' is of medium priority."
-    case "low":
-        reminder = f"Note: Your task: '{task}' is of low priority."
-    case _:
-        reminder = "Invalid priority level entered."
+    # Initialize the reminder message
+    reminder = ""
 
-# Check if the task is time-sensitive
-if time_bound.lower() == "yes":
-    reminder += " That requires immediate attention today!"
+    # Match Case for priority levels
+    match priority:
+        case "high":
+            reminder = f"Reminder: '{task}' is a high priority task"
+        case "medium":
+            reminder = f"Reminder: '{task}' is a medium priority task"
+        case "low":
+            reminder = f"Reminder: '{task}' is a low priority task"
+        case _:
+            print("Invalid priority level entered.")
+            return  # Exit the function if invalid priority is entered
 
-# Print the final reminder
-print(reminder)
+    # Modify the reminder based on time sensitivity
+    if time_bound == "yes":
+        reminder += " that requires immediate attention today!"
+    elif time_bound == "no":
+        reminder += ". Consider completing it when you have free time."
+    else:
+        print("Invalid input for time sensitivity.")
+        return  # Exit the function if invalid time-bound input is entered
+
+    # Print the customized reminder
+    print(reminder)
+
+
+if __name__ == "__main__":
+    main()
